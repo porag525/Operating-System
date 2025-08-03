@@ -1,4 +1,4 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -30,7 +30,8 @@ int main() {
             need[i][j] = max[i][j] - alloc[i][j];
 
     bool finished[n] = {false};
-    int safeSeq[n], index = 0;
+    vector<int>safeSequence;
+ //   int index = 0;
 
     for (int k = 0; k < n * n; k++) { // try n times max
         for (int i = 0; i < n; i++) {
@@ -45,7 +46,7 @@ int main() {
                 if (canAllocate) {
                     for (int j = 0; j < m; j++)
                         avail[j] += alloc[i][j];
-                    safeSeq[index++] = i;
+                    safeSequence.push_back(i);
                     finished[i] = true;
                 }
             }
@@ -61,7 +62,7 @@ int main() {
     if (safe) {
         cout << "System is in a SAFE STATE.\nSafe sequence: ";
         for (int i = 0; i < n; i++)
-            cout << "P" << safeSeq[i] << " ";
+            cout << "P" << safeSequence[i] << " ";
         cout << endl;
     } else {
         cout << "System is in an UNSAFE STATE.\n";

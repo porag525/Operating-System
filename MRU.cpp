@@ -2,11 +2,11 @@
 using namespace std;
 
 int findLRUIndex(vector<pair<int, int>>& frames) {
-    int minTime = frames[0].second;
+    int maxTime = frames[0].second;
     int index = 0;
     for (int i = 1; i < frames.size(); i++) {
-        if (frames[i].second > minTime) {
-            minTime = frames[i].second;
+        if (frames[i].second > maxTime) {
+            maxTime = frames[i].second;
             index = i;
         }
     }

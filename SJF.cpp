@@ -14,10 +14,10 @@ struct Process
 // Custom comparison function to sort by burst time
 bool compareProcesses(const Process &a, const Process &b)
 {
-    return a.burst_time < b.burst_time;
+    return a.burst_time <= b.burst_time;
 }
 
-void calculateTimes(std::vector<Process> &processes)
+void calculateTimes(vector<Process> &processes)
 {
     int n = processes.size();
     sort(processes.begin(), processes.end(), compareProcesses); // Sort by burst time
@@ -40,10 +40,11 @@ int main()
 {
 
     vector<Process> processes = {
-        {1, 0, 6},
-        {2, 2, 8},
-        {3, 4, 7},
-        {4, 5, 3}};
+        {1, 4, 5},
+        {2, 0, 2},
+        {3, 1, 5},
+        {4, 6, 7},
+        {5, 2, 3}};
 
     calculateTimes(processes);
 
